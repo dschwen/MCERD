@@ -26,7 +26,7 @@
 
 /* All functions needed for reading a file collected from the original mcerd source files
  * (read_input.c, read_detector.c and read_target.c) */
- 
+
 
 Fvalue *read_file(char *fname,int cols,int *n)
 {
@@ -34,11 +34,11 @@ Fvalue *read_file(char *fname,int cols,int *n)
    Fvalue *f;
    char buf[LINE];
    int i=0;
-      
+
    f = (Fvalue *) malloc(sizeof(Fvalue));
-   
+
    fp = fopen(fname,"r");
-   
+
    if(fp==NULL){
       /* fprintf(stderr,"Could not open file %s\n",fname);
       exit(10); */
@@ -54,19 +54,19 @@ Fvalue *read_file(char *fname,int cols,int *n)
             break;
          case 2:
             sscanf(buf,"%lf %lf",&(f->a[i]),&(f->b[i]));
-            break;      
+            break;
          case 3:
             sscanf(buf,"%lf %lf %lf",&(f->a[i]),&(f->b[i]),&(f->c[i]));
-            break;      
+            break;
       }
       i++;
    }
    fclose(fp);
-   
+
    *n = i;
-   
+
    return(f);
-   
+
 }
 void get_atom(char *c,double *z)
 {
@@ -77,7 +77,7 @@ void get_atom(char *c,double *z)
    symbol = get_word(c,&n);
 
    fp = fopen(FILE_MASSES,"r");
-   
+
    if(fp == NULL){
       /* fprintf(stderr,"Could not open file %s\n",FILE_MASSES);
       exit(10); */
@@ -99,7 +99,7 @@ void get_atom(char *c,double *z)
       error_dialog("atom data not found from database");
       longjmp(err_buf,1);
    } else{
-      *z = (double) Z; 
+      *z = (double) Z;
    }
 
 }
@@ -117,7 +117,7 @@ void get_ion(char *c,double *z,double *m,Isotopes *I)
    symbol = get_word(c,&n);
 
    fp = fopen(FILE_MASSES,"r");
-   
+
    if(fp == NULL){
       /* fprintf(stderr,"Could not open file %s\n",FILE_MASSES);
       exit(10); */
@@ -144,7 +144,7 @@ void get_ion(char *c,double *z,double *m,Isotopes *I)
             I->c[n] = C/100.0;
             n++;
          }
-   }   
+   }
 
    fclose(fp);
    free(symbol);
@@ -161,24 +161,24 @@ void get_ion(char *c,double *z,double *m,Isotopes *I)
          *z = Z1;
       } else {
          *m = U*C_U/1e6;
-         *z = Z; 
+         *z = Z;
       }
 
 }
 char *get_string(char *c)
 {
 
-/* 
+/*
    String can contain white spaces, thus there can be only one string per line
 */
    char *p;
    size_t i=0;
 
    while(*(c+i) != '\0')
-      i++; 
-   
+      i++;
+
    i--;
-   
+
    while(i > 0 && isspace(*(c+i)))
       i--;
 
@@ -188,13 +188,13 @@ char *get_string(char *c)
       return(NULL);
 
    p = (char *) malloc(sizeof(char)*(i+1));
-   
+
    p = strncpy(p,c,i);
-   
+
    p[i] = '\0';
 
    return(p);
-  
+
 }
 char *get_word(char *c,int *n)
 {
@@ -202,10 +202,10 @@ char *get_word(char *c,int *n)
    size_t i=0;
 
    while(*(c+i) != '\0' && !isspace(*(c+i)))
-      i++; 
-   
+      i++;
+
    i--;
-   
+
    while(i > 0 && isspace(*(c+i)))
       i--;
 
@@ -215,34 +215,34 @@ char *get_word(char *c,int *n)
       return(NULL);
 
    p = (char *) malloc(sizeof(char)*(i+1));
-   
+
    p = strncpy(p,c,i);
-   
+
    p[i] = '\0';
 
    *n = i;
    return(p);
-  
+
 }
 char *get_number(char *c,double *number)
 {
    int t;
    char *s;
    size_t i=0;
-   
-   while(isnumber(*(c+i)))
+
+   while(is_number(*(c+i)))
       i++;
-   if((*(c+i) == 'e' || *(c+i) == 'E') && i != 0 && *(c+i) != '\0' 
-      && *(c+i+1) != '\0' && 
-      (isnumber(*(c+i+1)) || *(c+i+1) == '-' || *(c+i+1) == '+')){
+   if((*(c+i) == 'e' || *(c+i) == 'E') && i != 0 && *(c+i) != '\0'
+      && *(c+i+1) != '\0' &&
+      (is_number(*(c+i+1)) || *(c+i+1) == '-' || *(c+i+1) == '+')){
       t = i;
       i++;
-      while(isnumber(*(c+i)))
+      while(is_number(*(c+i)))
          i++;
       if(t == (i+1))
          i = t;
    }
-   
+
    if(i == 0)
       return(NULL);
    if(*(c+i) == '\0'){
@@ -257,7 +257,7 @@ char *get_number(char *c,double *number)
 */
    }
 
-   c = trim_space(c+i);     
+   c = trim_space(c+i);
    return(c);
 }
 char *get_unit_value(char *c,double *unit,double def)
@@ -265,8 +265,8 @@ char *get_unit_value(char *c,double *unit,double def)
    int j= -1,v;
    char *u;
    size_t i=0;
-/*   
-   while(*(c+i) != '\0' && !isnumber(*(c+i)) && !isspace(*(c+i)))
+/*
+   while(*(c+i) != '\0' && !is_number(*(c+i)) && !isspace(*(c+i)))
       i++;
 */
    while(*(c+i) != '\0' && !isspace(*(c+i)))
@@ -276,11 +276,11 @@ char *get_unit_value(char *c,double *unit,double def)
       *unit = def;
       return(c);
    }
-   
+
    u = (char *) malloc(sizeof(char)*(i+1));
    strncpy(u,c,i);
    u[i] = '\0';
-   
+
    do {
       j++;
       v = strcmp(u,units[j].unit);
@@ -294,8 +294,8 @@ char *get_unit_value(char *c,double *unit,double def)
    }
 
    *unit = units[j].value;
-   
-   c = trim_space(c+i);   
+
+   c = trim_space(c+i);
 
    return(c);
 }
@@ -303,16 +303,16 @@ char *trim_space(char *c)
 {
    while(*c != '\0' && isspace(*c))
       c++;
-      
+
    return(c);
 }
-int isnumber(char c)
+int is_number(char c)
 {
    if(isdigit(c) || c == '-' || c == '.' || c == ',' || c == '+') /* added ',' for windows */
       return(TRUE);
    else
       return(FALSE);
-      
+
 }
 TextLine *addline(TextLine *line,char *buf)
 {
@@ -342,4 +342,3 @@ int line_not_empty(char *buf)
 
    return(!empty);
 }
-

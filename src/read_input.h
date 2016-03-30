@@ -100,7 +100,7 @@ static Units units[] = {
    {"ps",1.0e-12,0},
    {"fs",1.0e-15,0},
    {"as",1.0e-18,0},
-   
+
    {"m",1.0,0},
    {"km",1.0e3,0},
    {"cm",1.0e-2,0},
@@ -110,7 +110,7 @@ static Units units[] = {
    {"pm",1.0e-12,0},
    {"fm",1.0e-15,0},
    {SYM_A,1.0e-10,0},
-   
+
    {"m/s",1.0,0},
    {"km/s",1000.0,0},
    {"cm/s",1.0e-2,0},
@@ -130,14 +130,14 @@ static Units units[] = {
    {"keV/(ug/cm2)",1.0,1},
    {SYM_EVCM2_1E15ATOMS,1.0,1},
    {SYM_MEV_MG_CM2,1.0,1},
-   {"MeV/(mg/cm2)",1.0,1},   
+   {"MeV/(mg/cm2)",1.0,1},
    {SYM_EV_UG_CM2,1.0,1},
    {"eV/(ug/cm2)",1.0,1},
 
    {SYM_G_CM3,1000.0,0},
-   {"g/cm3",1000.0,0},   
+   {"g/cm3",1000.0,0},
    {SYM_KG_M3,C_DEFAULT,0},
-   {"kg/m3",C_DEFAULT,0},  
+   {"kg/m3",C_DEFAULT,0},
 
    {"END",-1.0,-1}
 };
@@ -147,7 +147,7 @@ static Units units[] = {
 TextLine *addline(TextLine *,char *);
 char *trim_space(char *);
 char *get_string(char *);
-int isnumber(char);
+int is_number(char);
 char *get_unit_value(char *,double *,double);
 char *get_number(char *,double *);
 char *get_word(char *,int *);
@@ -156,5 +156,3 @@ void get_ion(char *,double *,double *,Isotopes *);
 void get_atom(char *,double *);
 Fvalue *read_file(char *,int,int *);
 int line_not_empty(char *);
-
-
