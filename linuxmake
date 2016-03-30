@@ -1,0 +1,28 @@
+#!/bin/bash
+#
+# Linux script for running zbl96 and mcerd makefiles an copying all necessary files.
+# Version 17.12.2010
+#
+# Compile zbl96 binary and library.
+# Copy zbl96 binary and library to src folder and clean unnecessary files.
+echo compiling and copying zbl96..
+cd ./src/zbl96-0.99a
+make
+make lib
+cd ..
+cp ./zbl96-0.99a/zbl96 ./zbl96
+cp ./zbl96-0.99a/libzbl96.a ./libzbl96.a
+cd ./zbl96-0.99a
+make clean
+cd ..
+#
+# Compile mcerd binary
+# Copy mcerd binary to main folder and remove all unnecessary files.
+echo compiling and copying mcerd..
+make
+cd ..
+cp ./src/mcerd ./mcerd
+cd ./src
+rm -f zbl96 libzbl96.a mcerd
+cd ..
+echo Ready.

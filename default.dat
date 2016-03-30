@@ -1,0 +1,29 @@
+******************* Type of the simulation *******************************
+
+Type of simulation: ERD
+
+*************** General physical parameters for the simulation ***********
+
+Beam ion: 35Cl
+Beam energy: 7.500000 MeV
+
+********** Physical parameters conserning specific simulation type *******
+
+----------------------- ERD -simulation ----------------------------------
+
+Recoiling atom: O
+Target angle: 20.000000 deg
+Beam spot size: 5.000000 5.000000 mm
+
+******************* Parameters with physical significance ****************
+
+Minimum angle of scattering: 0.050000 deg
+Minimum energy of ions: 0.100000 MeV
+Average number of recoils per primary ion: 10
+Recoil angle width (wide or narrow): narrow
+
+******************* Nonphysical parameters for simulation ****************
+
+Number of ions: 200000
+Number of ions in the presimulation: 10000
+Seed number of the random number generator: 101

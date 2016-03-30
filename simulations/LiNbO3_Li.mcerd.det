@@ -1,0 +1,20 @@
+Detector type: TOF
+Detector angle: 40.000000
+Virtual detector size: 5.000000 10.000000
+Timing detector numbers: 2 3
+==========
+Foil type: circular
+Foil diameter: 7.000000
+Foil distance: 310.000000
+----------
+Foil type: circular
+Foil diameter: 12.000000
+Foil distance: 488.000000
+----------
+Foil type: circular
+Foil diameter: 18.000000
+Foil distance: 1172.000000
+----------
+Foil type: circular
+Foil diameter: 19.500000
+Foil distance: 1243.000000

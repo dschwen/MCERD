@@ -1,0 +1,12 @@
+Detector type: GAS
+Detector angle: 45.000000
+Virtual detector size: 0.000000 0.000000
+Timing detector numbers: 1 2
+==========
+Foil type: rectangular
+Foil size: 24.000000 24.000000
+Foil distance: 276.000000
+----------
+Foil type: rectangular
+Foil size: 40.000000 40.000000
+Foil distance: 276.010000

@@ -1,0 +1,24 @@
+Modifications made:
+================
+
+
+17122010:
+
+- Zooming option added
+- Hand tool option added (zoom, select point, normal)
+- Logarithmic scale option removed (problems when zooming)
+- More effective memory usage (in get_espe)
+- New random number generator (Mersenne Twister)
+- SRIM stopping powers added
+----------------------------------------------------
+
+17092010:
+
+- Reading and saving distribution points
+- Scaling automatically distribution graph
+----------------------------------------------------
+
+27052010:
+
+- GUI for original MCERD code ready
+----------------------------------------------------

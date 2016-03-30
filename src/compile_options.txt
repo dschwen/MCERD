@@ -1,0 +1,14 @@
+These options can be used when compiling:
+
+
+DEBUG
+REC_ANG
+Linux
+NO_STRAGGLING
+NO_ELOSS
+NO_ETRANS
+SCAT_ANAL
+NO_ANGLES
+NO_PRI_ANGLES
+NO_SEC_ANGLES
+ALPHA

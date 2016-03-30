@@ -1,0 +1,102 @@
+File info
+============
+
+Misc information about some src files:
+
+check_param.c: functions for checking input parameters
+elsto.c: functions for stopping powers
+fpu.c: not used in this packet
+generate_sptables.c: functions for generating SRIM stopping powers
+get_espe.c: functions for calculating energy spectrum
+mt19937ar.c: mersenne twister RNG
+plot_espe.c: includes all plotting options
+read_input.c: parameters from the GUI to the original MCERD code
+read_param.c: functions for reading parameters from files
+run_simu.c: run simulation, makes same things than the original MCERD main
+write.c: write parameters to files
+
+general.h: constants and parameters for MCERD
+generate_sptables.h: constants for SRIM stopping powers
+param.h: GUI parameters
+protot.h: GUI prototypes
+prototypes.h: MCERD prototypes
+
+----------------------------------------------------------------------------------------------------
+
+
+All files listed below
+
+SRC FILES
+
+GUI + others:
+
+check_buttons.c
+check_param.c
+detector_param.c
+dialogs.c
+espe_param.c
+file_handling.c
+foil_param.c
+format_values.c
+generate_sptables.c
+main.c
+main_generate.c
+menu.c
+mt19937ar.c
+plot_espe.c
+presimu_param.c
+quit.c
+read_param.c
+recdist_param.c
+run_simu.c
+scale_param.c
+simulation_param.c
+target_param.c
+widgets.c
+write.c
+
+from original MCERD:
+
+cross_section.c
+debug.c
+elsto.c
+erd_detector.c
+erd_scattering.c
+finalize.c
+finish_ion.c
+fpu.c
+get_espe.c
+init_detector.c
+init_params.c
+init_simu.c
+ion_simu.c
+misc.c
+output.c
+potential.c
+pre_simulation.c
+printdata.c
+random.c
+read_functions.c
+read_input.c
+rotate.c
+scattering_angle.c
+virtual_detector.c
+
+HEADER FILES
+
+GUI + others:
+
+generate_sptables.h
+gtkextra.h
+mt19937ar.h
+param.h
+protot.h
+
+from original MCERD:
+
+general.h
+prototypes.h
+rand_dist.h
+read_input.h
+symbols.h
+yang.h
