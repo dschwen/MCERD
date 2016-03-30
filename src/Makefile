@@ -4,14 +4,12 @@
 
 CC=gcc
 
-CFLAGS=-O2 -DLinux
+CFLAGS=-O2 -DLinux -I/usr/local/include/gtkextra-3.0/
 #LDFLAGS=
 
-LIB=-lm `pkg-config --cflags --libs gtk+-2.0`
+LIB=-lm `pkg-config --cflags --libs gtk+-2.0` -L/usr/local/lib -lgtkextra-quartz-3.0
 
 ZBLLIB=libzbl96.a
-
-GTKEXTRALIB=libgtkextra-x11-2.0.a
 
 PROG=mcerd
 
@@ -26,5 +24,5 @@ print_data.c random.c read_functions.c read_input.c rotate.c run_simu.c scatteri
 
 ESPESRCS=get_espe.c plot_espe.c
 
-$(PROG): $(GUISRCS) $(SRCS) $(ESPESRCS) $(ZBLLIB) $(GTKEXTRALIB)
-	$(CC) $(CFLAGS) $(LDFLAGS) $(GUISRCS) $(SRCS) $(ESPESRCS) $(ZBLLIB) $(GTKEXTRALIB) -o $(PROG) $(LIB)
+$(PROG): $(GUISRCS) $(SRCS) $(ESPESRCS) $(ZBLLIB)
+	$(CC) $(CFLAGS) $(LDFLAGS) $(GUISRCS) $(SRCS) $(ESPESRCS) $(ZBLLIB) -o $(PROG) $(LIB)
